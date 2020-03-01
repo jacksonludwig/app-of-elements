@@ -1,33 +1,26 @@
 package com.example.periodictable.activities;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.periodictable.R;
 import com.example.periodictable.model.Element;
+import com.example.periodictable.utilities.AssetLoader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try {
-            FileInputStream fis = new FileInputStream(new File("D:\\app-of-elements\\app\\src\\main\\assets\\elements.dat"));
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            ArrayList<?> stuff = (ArrayList<?>) ois.readObject();
-            System.out.println(stuff);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ArrayList<Element> elements = AssetLoader.loadElementsList("elements.dat", getApplicationContext());
     }
 }
