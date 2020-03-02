@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.periodictable.R;
 import com.example.periodictable.model.Element;
-import com.example.periodictable.utilities.AssetLoader;
+import com.example.periodictable.utilities.JSONManipulator;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
+    private static final String ELEMENT_JSON_FILE = "PeriodicTableJSON.json";
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -21,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Element> elements = AssetLoader.loadElementsList("elements.dat", getApplicationContext());
+        List<Element> elements = generateElementsFromAssets();
+    }
+
+    private List<Element> generateElementsFromAssets() {
+        try {
+            return JSONManipulator.getListOfElements(getAssets().open(ELEMENT_JSON_FILE));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return null;
     }
 }

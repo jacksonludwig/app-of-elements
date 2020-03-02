@@ -1,273 +1,366 @@
 package com.example.periodictable.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "name",
+        "appearance",
+        "atomic_mass",
+        "boil",
+        "category",
+        "color",
+        "density",
+        "discovered_by",
+        "melt",
+        "molar_heat",
+        "named_by",
+        "number",
+        "period",
+        "phase",
+        "source",
+        "spectral_img",
+        "summary",
+        "symbol",
+        "xpos",
+        "ypos",
+        "shells",
+        "electron_configuration",
+        "electron_affinity",
+        "electronegativity_pauling",
+        "ionization_energies"
+})
 public class Element implements Serializable {
-    private String AtomicNumber = "AtomicNumber";
-    private String Element = "Element";
-    private String Symbol = "Symbol";
-    private String AtomicMass = "AtomicMass";
-    private String NumberofNeutrons = "NumberofNeutrons";
-    private String NumberofProtons = "NumberofProtons";
-    private String NumberofElectrons = "NumberofElectrons";
-    private String Period = "Period";
-    private String Group = "Group";
-    private String Phase = "Phase";
-    private String Radioactive = "Radioactive";
-    private String Natural = "Natural";
-    private String Metal = "Metal";
-    private String Nonmetal = "Nonmetal";
-    private String Metalloid = "Metalloid";
-    private String Type = "Type";
-    private String AtomicRadius = "AtomicRadius";
-    private String Electronegativity = "Electronegativity";
-    private String FirstIonization = "FirstIonization";
-    private String Density = "Density";
-    private String MeltingPoint = "MeltingPoint";
-    private String BoilingPoint = "BoilingPoint";
-    private String NumberOfIsotopes = "NumberOfIsotopes";
-    private String Discoverer = "Discoverer";
-    private String Year = "Year";
-    private String SpecificHeat = "SpecificHeat";
-    private String NumberofShells = "NumberofShells";
-    private String NumberofValence = "NumberofValence";
-    private String ChargeInCompound = "ChargeInCompound";
 
-    public String getChargeInCompound() {
-        return ChargeInCompound;
+    private final static long serialVersionUID = -4154376710730116681L;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("appearance")
+    private Object appearance;
+    @JsonProperty("atomic_mass")
+    private Integer atomicMass;
+    @JsonProperty("boil")
+    private Integer boil;
+    @JsonProperty("category")
+    private String category;
+    @JsonProperty("color")
+    private Object color;
+    @JsonProperty("density")
+    private Integer density;
+    @JsonProperty("discovered_by")
+    private String discoveredBy;
+    @JsonProperty("melt")
+    private Object melt;
+    @JsonProperty("molar_heat")
+    private Object molarHeat;
+    @JsonProperty("named_by")
+    private Object namedBy;
+    @JsonProperty("number")
+    private Integer number;
+    @JsonProperty("period")
+    private Integer period;
+    @JsonProperty("phase")
+    private String phase;
+    @JsonProperty("source")
+    private String source;
+    @JsonProperty("spectral_img")
+    private Object spectralImg;
+    @JsonProperty("summary")
+    private String summary;
+    @JsonProperty("symbol")
+    private String symbol;
+    @JsonProperty("xpos")
+    private Integer xpos;
+    @JsonProperty("ypos")
+    private Integer ypos;
+    @JsonProperty("shells")
+    private List<Integer> shells = null;
+    @JsonProperty("electron_configuration")
+    private String electronConfiguration;
+    @JsonProperty("electron_affinity")
+    private Double electronAffinity;
+    @JsonProperty("electronegativity_pauling")
+    private Object electronegativityPauling;
+    @JsonProperty("ionization_energies")
+    private List<Double> ionizationEnergies = null;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
-    public void setChargeInCompound(String chargeInCompound) {
-        ChargeInCompound = chargeInCompound;
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAtomicNumber() {
-        return this.AtomicNumber;
+    @JsonProperty("appearance")
+    public Object getAppearance() {
+        return appearance;
     }
 
-    public void setAtomicNumber(String AtomicNumber) {
-        this.AtomicNumber = AtomicNumber;
+    @JsonProperty("appearance")
+    public void setAppearance(Object appearance) {
+        this.appearance = appearance;
     }
 
-    public String getElement() {
-        return this.Element;
+    @JsonProperty("atomic_mass")
+    public Integer getAtomicMass() {
+        return atomicMass;
     }
 
-    public void setElement(String Element) {
-        this.Element = Element;
+    @JsonProperty("atomic_mass")
+    public void setAtomicMass(Integer atomicMass) {
+        this.atomicMass = atomicMass;
     }
 
-    public String getSymbol() {
-        return this.Symbol;
+    @JsonProperty("boil")
+    public Integer getBoil() {
+        return boil;
     }
 
-    public void setSymbol(String Symbol) {
-        this.Symbol = Symbol;
+    @JsonProperty("boil")
+    public void setBoil(Integer boil) {
+        this.boil = boil;
     }
 
-    public String getAtomicMass() {
-        return this.AtomicMass;
+    @JsonProperty("category")
+    public String getCategory() {
+        return category;
     }
 
-    public void setAtomicMass(String AtomicMass) {
-        this.AtomicMass = AtomicMass;
+    @JsonProperty("category")
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getNumberofNeutrons() {
-        return this.NumberofNeutrons;
+    @JsonProperty("color")
+    public Object getColor() {
+        return color;
     }
 
-    public void setNumberofNeutrons(String NumberofNeutrons) {
-        this.NumberofNeutrons = NumberofNeutrons;
+    @JsonProperty("color")
+    public void setColor(Object color) {
+        this.color = color;
     }
 
-    public String getNumberofProtons() {
-        return this.NumberofProtons;
+    @JsonProperty("density")
+    public Integer getDensity() {
+        return density;
     }
 
-    public void setNumberofProtons(String NumberofProtons) {
-        this.NumberofProtons = NumberofProtons;
+    @JsonProperty("density")
+    public void setDensity(Integer density) {
+        this.density = density;
     }
 
-    public String getNumberofElectrons() {
-        return this.NumberofElectrons;
+    @JsonProperty("discovered_by")
+    public String getDiscoveredBy() {
+        return discoveredBy;
     }
 
-    public void setNumberofElectrons(String NumberofElectrons) {
-        this.NumberofElectrons = NumberofElectrons;
+    @JsonProperty("discovered_by")
+    public void setDiscoveredBy(String discoveredBy) {
+        this.discoveredBy = discoveredBy;
     }
 
-    public String getPeriod() {
-        return this.Period;
+    @JsonProperty("melt")
+    public Object getMelt() {
+        return melt;
     }
 
-    public void setPeriod(String Period) {
-        this.Period = Period;
+    @JsonProperty("melt")
+    public void setMelt(Object melt) {
+        this.melt = melt;
     }
 
-    public String getGroup() {
-        return this.Group;
+    @JsonProperty("molar_heat")
+    public Object getMolarHeat() {
+        return molarHeat;
     }
 
-    public void setGroup(String Group) {
-        this.Group = Group;
+    @JsonProperty("molar_heat")
+    public void setMolarHeat(Object molarHeat) {
+        this.molarHeat = molarHeat;
     }
 
+    @JsonProperty("named_by")
+    public Object getNamedBy() {
+        return namedBy;
+    }
+
+    @JsonProperty("named_by")
+    public void setNamedBy(Object namedBy) {
+        this.namedBy = namedBy;
+    }
+
+    @JsonProperty("number")
+    public Integer getNumber() {
+        return number;
+    }
+
+    @JsonProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonProperty("period")
+    public Integer getPeriod() {
+        return period;
+    }
+
+    @JsonProperty("period")
+    public void setPeriod(Integer period) {
+        this.period = period;
+    }
+
+    @JsonProperty("phase")
     public String getPhase() {
-        return this.Phase;
+        return phase;
     }
 
-    public void setPhase(String Phase) {
-        this.Phase = Phase;
+    @JsonProperty("phase")
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 
-    public String getRadioactive() {
-        return this.Radioactive;
+    @JsonProperty("source")
+    public String getSource() {
+        return source;
     }
 
-    public void setRadioactive(String Radioactive) {
-        this.Radioactive = Radioactive;
+    @JsonProperty("source")
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public String getNatural() {
-        return this.Natural;
+    @JsonProperty("spectral_img")
+    public Object getSpectralImg() {
+        return spectralImg;
     }
 
-    public void setNatural(String Natural) {
-        this.Natural = Natural;
+    @JsonProperty("spectral_img")
+    public void setSpectralImg(Object spectralImg) {
+        this.spectralImg = spectralImg;
     }
 
-    public String getMetal() {
-        return this.Metal;
+    @JsonProperty("summary")
+    public String getSummary() {
+        return summary;
     }
 
-    public void setMetal(String Metal) {
-        this.Metal = Metal;
+    @JsonProperty("summary")
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
-    public String getNonmetal() {
-        return this.Nonmetal;
+    @JsonProperty("symbol")
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setNonmetal(String Nonmetal) {
-        this.Nonmetal = Nonmetal;
+    @JsonProperty("symbol")
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public String getMetalloid() {
-        return this.Metalloid;
+    @JsonProperty("xpos")
+    public Integer getXpos() {
+        return xpos;
     }
 
-    public void setMetalloid(String Metalloid) {
-        this.Metalloid = Metalloid;
+    @JsonProperty("xpos")
+    public void setXpos(Integer xpos) {
+        this.xpos = xpos;
     }
 
-    public String getType() {
-        return this.Type;
+    @JsonProperty("ypos")
+    public Integer getYpos() {
+        return ypos;
     }
 
-    public void setType(String Type) {
-        this.Type = Type;
+    @JsonProperty("ypos")
+    public void setYpos(Integer ypos) {
+        this.ypos = ypos;
     }
 
-    public String getAtomicRadius() {
-        return this.AtomicRadius;
+    @JsonProperty("shells")
+    public List<Integer> getShells() {
+        return shells;
     }
 
-    public void setAtomicRadius(String AtomicRadius) {
-        this.AtomicRadius = AtomicRadius;
+    @JsonProperty("shells")
+    public void setShells(List<Integer> shells) {
+        this.shells = shells;
     }
 
-    public String getElectronegativity() {
-        return this.Electronegativity;
+    @JsonProperty("electron_configuration")
+    public String getElectronConfiguration() {
+        return electronConfiguration;
     }
 
-    public void setElectronegativity(String Electronegativity) {
-        this.Electronegativity = Electronegativity;
+    @JsonProperty("electron_configuration")
+    public void setElectronConfiguration(String electronConfiguration) {
+        this.electronConfiguration = electronConfiguration;
     }
 
-    public String getFirstIonization() {
-        return this.FirstIonization;
+    @JsonProperty("electron_affinity")
+    public Double getElectronAffinity() {
+        return electronAffinity;
     }
 
-    public void setFirstIonization(String FirstIonization) {
-        this.FirstIonization = FirstIonization;
+    @JsonProperty("electron_affinity")
+    public void setElectronAffinity(Double electronAffinity) {
+        this.electronAffinity = electronAffinity;
     }
 
-    public String getDensity() {
-        return this.Density;
+    @JsonProperty("electronegativity_pauling")
+    public Object getElectronegativityPauling() {
+        return electronegativityPauling;
     }
 
-    public void setDensity(String Density) {
-        this.Density = Density;
+    @JsonProperty("electronegativity_pauling")
+    public void setElectronegativityPauling(Object electronegativityPauling) {
+        this.electronegativityPauling = electronegativityPauling;
     }
 
-    public String getMeltingPoint() {
-        return this.MeltingPoint;
+    @JsonProperty("ionization_energies")
+    public List<Double> getIonizationEnergies() {
+        return ionizationEnergies;
     }
 
-    public void setMeltingPoint(String MeltingPoint) {
-        this.MeltingPoint = MeltingPoint;
+    @JsonProperty("ionization_energies")
+    public void setIonizationEnergies(List<Double> ionizationEnergies) {
+        this.ionizationEnergies = ionizationEnergies;
     }
 
-    public String getBoilingPoint() {
-        return this.BoilingPoint;
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
-    public void setBoilingPoint(String BoilingPoint) {
-        this.BoilingPoint = BoilingPoint;
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 
-    public String getNumberOfIsotopes() {
-        return this.NumberOfIsotopes;
-    }
-
-    public void setNumberOfIsotopes(String NumberOfIsotopes) {
-        this.NumberOfIsotopes = NumberOfIsotopes;
-    }
-
-    public String getDiscoverer() {
-        return this.Discoverer;
-    }
-
-    public void setDiscoverer(String Discoverer) {
-        this.Discoverer = Discoverer;
-    }
-
-    public String getYear() {
-        return this.Year;
-    }
-
-    public void setYear(String Year) {
-        this.Year = Year;
-    }
-
-    public String getSpecificHeat() {
-        return this.SpecificHeat;
-    }
-
-    public void setSpecificHeat(String SpecificHeat) {
-        this.SpecificHeat = SpecificHeat;
-    }
-
-    public String getNumberofShells() {
-        return this.NumberofShells;
-    }
-
-    public void setNumberofShells(String NumberofShells) {
-        this.NumberofShells = NumberofShells;
-    }
-
-    public String getNumberofValence() {
-        return this.NumberofValence;
-    }
-
-    public void setNumberofValence(String NumberofValence) {
-        this.NumberofValence = NumberofValence;
-    }
-
-    // toString() Method
+    @Override
     public String toString() {
-        return "{\"AtomicNumber\"=" + AtomicNumber + ",\"Element\"=" + Element + ",\"Symbol\"=" + Symbol + ",\"AtomicMass\"=" + AtomicMass + ",\"NumberofNeutrons\"=" + NumberofNeutrons + ",\"NumberofProtons\"=" + NumberofProtons + ",\"NumberofElectrons\"=" + NumberofElectrons + ",\"Period\"=" + Period + ",\"Group\"=" + Group + ",\"Phase\"=" + Phase + ",\"Radioactive\"=" + Radioactive + ",\"Natural\"=" + Natural + ",\"Metal\"=" + Metal + ",\"Nonmetal\"=" + Nonmetal + ",\"Metalloid\"=" + Metalloid + ",\"Type\"=" + Type + ",\"AtomicRadius\"=" + AtomicRadius + ",\"Electronegativity\"=" + Electronegativity + ",\"FirstIonization\"=" + FirstIonization + ",\"Density\"=" + Density + ",\"MeltingPoint\"=" + MeltingPoint + ",\"BoilingPoint\"=" + BoilingPoint + ",\"NumberOfIsotopes\"=" + NumberOfIsotopes + ",\"Discoverer\"=" + Discoverer + ",\"Year\"=" + Year + ",\"SpecificHeat\"=" + SpecificHeat + ",\"NumberofShells\"=" + NumberofShells + ",\"NumberofValence\"=" + NumberofValence + "}";
+        return new ToStringBuilder(this).append("name", name).append("appearance", appearance).append("atomicMass", atomicMass).append("boil", boil).append("category", category).append("color", color).append("density", density).append("discoveredBy", discoveredBy).append("melt", melt).append("molarHeat", molarHeat).append("namedBy", namedBy).append("number", number).append("period", period).append("phase", phase).append("source", source).append("spectralImg", spectralImg).append("summary", summary).append("symbol", symbol).append("xpos", xpos).append("ypos", ypos).append("shells", shells).append("electronConfiguration", electronConfiguration).append("electronAffinity", electronAffinity).append("electronegativityPauling", electronegativityPauling).append("ionizationEnergies", ionizationEnergies).append("additionalProperties", additionalProperties).toString();
     }
-}
 
+}
