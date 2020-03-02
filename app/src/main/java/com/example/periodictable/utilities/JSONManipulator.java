@@ -25,14 +25,9 @@ public final class JSONManipulator {
         return json.toString();
     }
 
-    private static ElementBag parseJSON(String json) {
+    private static ElementBag parseJSON(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        ElementBag elementBag = null;
-        try {
-            elementBag = objectMapper.readValue(json, ElementBag.class);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        ElementBag elementBag = objectMapper.readValue(json, ElementBag.class);
         return elementBag;
     }
 

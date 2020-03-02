@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<Element> elements = generateElementsFromAssets();
+        for (Element element : elements) {
+            System.out.println(element.getName());
+        }
     }
 
     private List<Element> generateElementsFromAssets() {
