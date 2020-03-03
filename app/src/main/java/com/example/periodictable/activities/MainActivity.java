@@ -11,13 +11,13 @@ import com.example.periodictable.model.Element;
 import com.example.periodictable.utilities.JSONManipulator;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
     private static final String ELEMENT_JSON_FILE = "PeriodicTableJSON.json";
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Element> generateElementsFromAssets() {
         try {
-            return JSONManipulator.getListOfElements(getAssets().open(ELEMENT_JSON_FILE));
+            return JSONManipulator.getListOfElements(openStreamFromAssets());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
         return null;
+    }
+
+    private InputStream openStreamFromAssets() throws IOException {
+        return getAssets().open(ELEMENT_JSON_FILE);
     }
 }

@@ -27,8 +27,7 @@ public final class JSONManipulator {
 
     private static ElementBag parseJSON(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        ElementBag elementBag = objectMapper.readValue(json, ElementBag.class);
-        return elementBag;
+        return objectMapper.readValue(json, ElementBag.class);
     }
 
     public static List<Element> getListOfElements(InputStream asset) throws IOException {

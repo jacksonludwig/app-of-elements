@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Periodic Table</string>
+    <string name="element_button">Search For Element</string>
+    <string name="periodic_table_button">Periodic Table</string>
 </resources>
