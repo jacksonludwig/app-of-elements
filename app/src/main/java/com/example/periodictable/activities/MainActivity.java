@@ -44,7 +44,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openElementSearch(View view) {
-        Intent intent = new Intent(getApplicationContext(), ElementSearchActivity.class);
+        openNewViewAndSendElementsList(ElementSearchActivity.class);
+    }
+
+    public void openPeriodicTable(View view) {
+        openNewViewAndSendElementsList(PeriodicTable.class);
+    }
+
+    private void openNewViewAndSendElementsList(Class newActivity) {
+        Intent intent = new Intent(getApplicationContext(), newActivity);
         intent.putExtra("elements", (Serializable) generateElementsFromAssets());
         startActivity(intent);
     }
