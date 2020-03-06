@@ -1,4 +1,5 @@
 # app-of-elements
+
 Periodic table android app in Java
 
 Element data from https://github.com/Bowserinator/Periodic-Table-JSON
@@ -6,3 +7,5 @@ Element data from https://github.com/Bowserinator/Periodic-Table-JSON
 JSON parsing through https://github.com/FasterXML/jackson
 
 Some functionality permitted by https://commons.apache.org/proper/commons-lang/
+
+Table layout from https://github.com/HaniMohamed/SciTab-Android
