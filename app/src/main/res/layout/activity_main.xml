@@ -25,15 +25,15 @@
     <Button
         android:id="@+id/periodic_table_button"
         style="@style/Widget.AppCompat.Button"
-        app:layout_constraintWidth_percent="0.6"
-        app:layout_constraintHeight_percent="0.13"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:onClick="openPeriodicTable"
         android:layout_marginTop="115dp"
+        android:onClick="openPeriodicTable"
         android:text="@string/periodic_table_button"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="@+id/element_search_button"
+        app:layout_constraintHeight_percent="0.13"
         app:layout_constraintStart_toStartOf="@+id/element_search_button"
-        app:layout_constraintTop_toBottomOf="@+id/element_search_button" />
+        app:layout_constraintTop_toBottomOf="@+id/element_search_button"
+        app:layout_constraintWidth_percent="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

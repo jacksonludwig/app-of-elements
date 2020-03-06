@@ -1,11 +1,9 @@
 package com.example.periodictable.activities;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.periodictable.R;
@@ -20,13 +18,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String ELEMENT_JSON_FILE = "PeriodicTableJSON.json";
+    private static final String ELEMENTS_EXTRA_KEY = "elements";
+
+    private List<Element> elements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        elements = generateElementsFromAssets();
     }
 
     private List<Element> generateElementsFromAssets() {
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void openNewViewAndSendElementsList(Class newActivity) {
         Intent intent = new Intent(getApplicationContext(), newActivity);
-        intent.putExtra("elements", (Serializable) generateElementsFromAssets());
+        intent.putExtra(ELEMENTS_EXTRA_KEY, (Serializable) elements);
         startActivity(intent);
     }
 }
