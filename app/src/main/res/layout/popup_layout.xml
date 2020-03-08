@@ -28,13 +28,13 @@
 
     <ImageButton
         android:id="@+id/close_popup_button"
-        android:layout_width="30dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintBottom_toTopOf="@+id/placeholder"
         app:layout_constraintEnd_toEndOf="@+id/placeholder"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/placeholder"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        app:layout_constraintStart_toStartOf="@+id/placeholder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
