@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,8 +27,9 @@ public class PeriodicTable extends AppCompatActivity {
     private static final String ELEMENTS_EXTRA_KEY = "elements";
     private static final int DEFAULT_X_POS = -300;
     private static final int DEFAULT_Y_POS = -300;
-    private static final int WINDOW_HEIGHT = 400;
-    private static final int WINDOW_WIDTH = 1100;
+
+    private int height = 400;
+    private int width = 1100;
 
     private List<Element> elements;
 
@@ -44,6 +46,14 @@ public class PeriodicTable extends AppCompatActivity {
 
         elements = getElementsFromMain();
         isPopupOpen = false;
+        setScreenSize();
+    }
+
+    private void setScreenSize() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        width = (int) (displayMetrics.widthPixels * .7);
+        height = (int) (displayMetrics.heightPixels * .4);
     }
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -58,8 +68,8 @@ public class PeriodicTable extends AppCompatActivity {
 
     private PopupWindow createPopupWindow(View view) {
         PopupWindow popupWindow = new PopupWindow(view,
-                WINDOW_WIDTH,
-                WINDOW_HEIGHT,
+                width,
+                height,
                 false);
 
         return popupWindow;
