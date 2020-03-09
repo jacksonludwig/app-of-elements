@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private void waitToShowWelcomeScreenThenStart() {
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(1600);
+                Thread.sleep(1450);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
