@@ -2,7 +2,6 @@ package com.example.periodictable.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,32 +27,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         elements = generateElementsFromAssets();
+        waitToShowWelcomeScreenThenStart();
     }
 
     private List<Element> generateElementsFromAssets() {
-        try {
-            return JSONManipulator.getListOfElements(openStreamFromAssets());
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        return null;
+            try {
+                return JSONManipulator.getListOfElements(openStreamFromAssets());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+            return null;
+    }
+
+    private void waitToShowWelcomeScreenThenStart() {
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(1600);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            openNewViewAndSendElementsList();
+        });
+        thread.start();
     }
 
     private InputStream openStreamFromAssets() throws IOException {
         return getAssets().open(ELEMENT_JSON_FILE);
     }
 
-    public void openElementSearch(View view) {
-        openNewViewAndSendElementsList(ElementSearchActivity.class);
-    }
-
-    public void openPeriodicTable(View view) {
-        openNewViewAndSendElementsList(PeriodicTable.class);
-    }
-
-    private void openNewViewAndSendElementsList(Class newActivity) {
-        Intent intent = new Intent(getApplicationContext(), newActivity);
+    private void openNewViewAndSendElementsList() {
+        Intent intent = new Intent(getApplicationContext(), PeriodicTable.class);
         intent.putExtra(ELEMENTS_EXTRA_KEY, (Serializable) elements);
         startActivity(intent);
     }

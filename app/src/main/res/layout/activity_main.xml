@@ -6,34 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <Button
-        android:id="@+id/element_search_button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:onClick="openElementSearch"
-        android:text="@string/element_button"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/rect_background"
+        android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".3"
-        app:layout_constraintWidth_percent="0.6" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/periodic_table_button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="115dp"
-        android:onClick="openPeriodicTable"
-        android:text="@string/periodic_table_button"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/element_search_button"
-        app:layout_constraintHeight_percent="0.13"
-        app:layout_constraintStart_toStartOf="@+id/element_search_button"
-        app:layout_constraintTop_toBottomOf="@+id/element_search_button"
-        app:layout_constraintWidth_percent="0.6" />
+        <TextView
+            android:id="@+id/welcome_msg_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodic"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/color3"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="351dp" />
+
+        <TextView
+            android:id="@+id/welcome_msg_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/color9"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="381dp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
