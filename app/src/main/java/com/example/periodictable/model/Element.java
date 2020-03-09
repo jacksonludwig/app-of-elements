@@ -48,25 +48,25 @@ public class Element implements Serializable {
     @JsonProperty("name")
     private String name;
     @JsonProperty("appearance")
-    private Object appearance;
+    private String appearance;
     @JsonProperty("atomic_mass")
-    private Integer atomicMass;
+    private Double atomicMass;
     @JsonProperty("boil")
-    private Integer boil;
+    private Double boil;
     @JsonProperty("category")
     private String category;
     @JsonProperty("color")
-    private Object color;
+    private String color;
     @JsonProperty("density")
-    private Integer density;
+    private Double density;
     @JsonProperty("discovered_by")
     private String discoveredBy;
     @JsonProperty("melt")
-    private Object melt;
+    private String melt;
     @JsonProperty("molar_heat")
-    private Object molarHeat;
+    private String molarHeat;
     @JsonProperty("named_by")
-    private Object namedBy;
+    private String namedBy;
     @JsonProperty("number")
     private Integer number;
     @JsonProperty("period")
@@ -76,7 +76,7 @@ public class Element implements Serializable {
     @JsonProperty("source")
     private String source;
     @JsonProperty("spectral_img")
-    private Object spectralImg;
+    private String spectralImg;
     @JsonProperty("summary")
     private String summary;
     @JsonProperty("symbol")
@@ -92,11 +92,11 @@ public class Element implements Serializable {
     @JsonProperty("electron_affinity")
     private Double electronAffinity;
     @JsonProperty("electronegativity_pauling")
-    private Object electronegativityPauling;
+    private String electronegativityPauling;
     @JsonProperty("ionization_energies")
     private List<Double> ionizationEnergies = null;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, String> additionalProperties = new HashMap<String, String>();
 
     @JsonProperty("name")
     public String getName() {
@@ -109,32 +109,32 @@ public class Element implements Serializable {
     }
 
     @JsonProperty("appearance")
-    public Object getAppearance() {
+    public String getAppearance() {
         return appearance;
     }
 
     @JsonProperty("appearance")
-    public void setAppearance(Object appearance) {
+    public void setAppearance(String appearance) {
         this.appearance = appearance;
     }
 
     @JsonProperty("atomic_mass")
-    public Integer getAtomicMass() {
+    public Double getAtomicMass() {
         return atomicMass;
     }
 
     @JsonProperty("atomic_mass")
-    public void setAtomicMass(Integer atomicMass) {
+    public void setAtomicMass(Double atomicMass) {
         this.atomicMass = atomicMass;
     }
 
     @JsonProperty("boil")
-    public Integer getBoil() {
+    public Double getBoil() {
         return boil;
     }
 
     @JsonProperty("boil")
-    public void setBoil(Integer boil) {
+    public void setBoil(Double boil) {
         this.boil = boil;
     }
 
@@ -149,22 +149,22 @@ public class Element implements Serializable {
     }
 
     @JsonProperty("color")
-    public Object getColor() {
+    public String getColor() {
         return color;
     }
 
     @JsonProperty("color")
-    public void setColor(Object color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
     @JsonProperty("density")
-    public Integer getDensity() {
+    public Double getDensity() {
         return density;
     }
 
     @JsonProperty("density")
-    public void setDensity(Integer density) {
+    public void setDensity(Double density) {
         this.density = density;
     }
 
@@ -179,32 +179,32 @@ public class Element implements Serializable {
     }
 
     @JsonProperty("melt")
-    public Object getMelt() {
+    public String getMelt() {
         return melt;
     }
 
     @JsonProperty("melt")
-    public void setMelt(Object melt) {
+    public void setMelt(String melt) {
         this.melt = melt;
     }
 
     @JsonProperty("molar_heat")
-    public Object getMolarHeat() {
+    public String getMolarHeat() {
         return molarHeat;
     }
 
     @JsonProperty("molar_heat")
-    public void setMolarHeat(Object molarHeat) {
+    public void setMolarHeat(String molarHeat) {
         this.molarHeat = molarHeat;
     }
 
     @JsonProperty("named_by")
-    public Object getNamedBy() {
+    public String getNamedBy() {
         return namedBy;
     }
 
     @JsonProperty("named_by")
-    public void setNamedBy(Object namedBy) {
+    public void setNamedBy(String namedBy) {
         this.namedBy = namedBy;
     }
 
@@ -249,12 +249,12 @@ public class Element implements Serializable {
     }
 
     @JsonProperty("spectral_img")
-    public Object getSpectralImg() {
+    public String getSpectralImg() {
         return spectralImg;
     }
 
     @JsonProperty("spectral_img")
-    public void setSpectralImg(Object spectralImg) {
+    public void setSpectralImg(String spectralImg) {
         this.spectralImg = spectralImg;
     }
 
@@ -329,12 +329,12 @@ public class Element implements Serializable {
     }
 
     @JsonProperty("electronegativity_pauling")
-    public Object getElectronegativityPauling() {
+    public String getElectronegativityPauling() {
         return electronegativityPauling;
     }
 
     @JsonProperty("electronegativity_pauling")
-    public void setElectronegativityPauling(Object electronegativityPauling) {
+    public void setElectronegativityPauling(String electronegativityPauling) {
         this.electronegativityPauling = electronegativityPauling;
     }
 
@@ -349,12 +349,12 @@ public class Element implements Serializable {
     }
 
     @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
+    public Map<String, String> getAdditionalProperties() {
         return this.additionalProperties;
     }
 
     @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
+    public void setAdditionalProperty(String name, String value) {
         this.additionalProperties.put(name, value);
     }
 

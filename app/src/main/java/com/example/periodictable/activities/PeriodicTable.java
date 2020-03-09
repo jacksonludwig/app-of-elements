@@ -3,17 +3,17 @@ package com.example.periodictable.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.periodictable.R;
 import com.example.periodictable.model.Element;
@@ -24,6 +24,8 @@ public class PeriodicTable extends AppCompatActivity {
     private static final String ELEMENTS_EXTRA_KEY = "elements";
     private static final int DEFAULT_X_POS = -300;
     private static final int DEFAULT_Y_POS = -300;
+    private static final int WINDOW_HEIGHT = 400;
+    private static final int WINDOW_WIDTH = 1100;
 
     private List<Element> elements;
 
@@ -53,10 +55,16 @@ public class PeriodicTable extends AppCompatActivity {
     }
 
     private PopupWindow createPopupWindow(View view) {
-        return new PopupWindow(view,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+        PopupWindow popupWindow = new PopupWindow(view,
+                WINDOW_WIDTH,
+                WINDOW_HEIGHT,
                 false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            popupWindow.setElevation(20);
+        }
+
+        return popupWindow;
     }
 
     public void openInfoMenu(View view) {
@@ -70,10 +78,10 @@ public class PeriodicTable extends AppCompatActivity {
             popUpPosY = DEFAULT_Y_POS;
             ImageButton closeButton = customView.findViewById(R.id.close_popup_button);
             popupWindow.showAtLocation(view, Gravity.CENTER, popUpPosX, popUpPosY);
-
             isPopupOpen = true;
             setCloseable(closeButton, popupWindow);
             setDraggable(customView);
+            setAttributes(view, customView);
         }
     }
 
@@ -108,6 +116,41 @@ public class PeriodicTable extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private void setAttributes(View clickedView, View popupView) {
+        setElementSymbolText(clickedView, popupView);
+        setElementSymbolBackground(clickedView, popupView);
+        setElementStats(clickedView, popupView);
+    }
+
+    private void setElementSymbolText(View clickedView, View popupView) {
+        TextView clickedText = findViewById(clickedView.getId());
+        TextView popupText = popupView.findViewById(R.id.popup_element_text);
+        popupText.setText(clickedText.getText());
+    }
+
+    private void setElementSymbolBackground(View clickedView, View popupView) {
+        TextView clickedText = findViewById(clickedView.getId());
+        TextView popupText = popupView.findViewById(R.id.popup_element_text);
+        popupText.setBackground(clickedText.getBackground());
+    }
+
+    private void setElementStats(View clickedView, View popupView) {
+        TextView clickedText = findViewById(clickedView.getId());
+        String elementNumber = ((String) clickedText.getText()).replaceAll("\\D+", "");
+        Element element = elements.get(Integer.parseInt(elementNumber) - 1);
+
+        TextView elementName = popupView.findViewById(R.id.popup_element_name);
+        elementName.setText(element.getName());
+        TextView elementMass = popupView.findViewById(R.id.popup_element_mass);
+        elementMass.setText(String.valueOf(element.getAtomicMass()));
+        TextView elementCategory = popupView.findViewById(R.id.popup_element_category);
+        elementCategory.setText(element.getCategory());
+        TextView elementColumn = popupView.findViewById(R.id.popup_element_column);
+        elementColumn.setText(String.valueOf(element.getXpos()));
+        TextView elementProtons = popupView.findViewById(R.id.popup_element_protons);
+        elementProtons.setText(String.valueOf(element.getNumber()));
     }
 
 }
