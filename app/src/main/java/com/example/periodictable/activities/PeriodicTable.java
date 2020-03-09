@@ -3,6 +3,8 @@ package com.example.periodictable.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -59,10 +61,6 @@ public class PeriodicTable extends AppCompatActivity {
                 WINDOW_WIDTH,
                 WINDOW_HEIGHT,
                 false);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            popupWindow.setElevation(20);
-        }
 
         return popupWindow;
     }
