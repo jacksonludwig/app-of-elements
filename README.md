@@ -1,8 +1,9 @@
-# app-of-elements
+
 
 
 ![image](https://user-images.githubusercontent.com/42984254/76339961-31b73a80-62d1-11ea-993b-ac9e77172f7f.png)
 
+# App-of-Elements
 
 Periodic table android app in Java
 
