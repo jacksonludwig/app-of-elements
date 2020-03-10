@@ -4,7 +4,7 @@ Interactive periodic table android app in Java
 
 ![image](https://user-images.githubusercontent.com/42984254/76339961-31b73a80-62d1-11ea-993b-ac9e77172f7f.png)
 
-![image](https://user-images.githubusercontent.com/42984254/76340713-6bd50c00-62d2-11ea-8017-6dc8aacbb2db.png)
+![image](https://user-images.githubusercontent.com/42984254/76341752-d9ce0300-62d3-11ea-857b-19db9edc938b.png)
 
 ---
 
