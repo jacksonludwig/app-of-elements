@@ -1,6 +1,6 @@
 # App-of-Elements
 
-Periodic table android app in Java
+Interactive periodic table android app in Java
 
 ![image](https://user-images.githubusercontent.com/42984254/76339961-31b73a80-62d1-11ea-993b-ac9e77172f7f.png)
 
