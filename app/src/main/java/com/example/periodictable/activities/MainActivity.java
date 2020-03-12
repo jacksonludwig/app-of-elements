@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         waitToShowWelcomeScreenThenStart();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        waitToShowWelcomeScreenThenStart();
+    }
+
     private List<Element> generateElementsFromAssets() {
             try {
                 return JSONManipulator.getListOfElements(openStreamFromAssets());
